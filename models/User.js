@@ -28,11 +28,10 @@ const userSchema = new mongoose.Schema(
 );
 
 // Pre-save hook: Hash password before persisting to database
-userSchema.pre("save", async function (next) {
-    if (!this.isModified("password")) return next(); // Skip if password not changed
-    const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password, salt);
-    next();
+userSchema.pre("save", async function () {
+  if (!this.isModified("password")) return;
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
 });
 
 // Compare plain text password with hashed password
