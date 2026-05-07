@@ -42,7 +42,7 @@ const addToCart = async (req, res, next) => {
                 if (newQty > product.stock) {
                     return res.status(400).json({
                         success: false,
-                        message: `Cannot add more. Only ${product.stock} unit(s) in stock (${existingItem.quantity} already in cart).`,
+                        message: `Cannot add more. Only ${product.stock} unit(s) in stock (${existingItem.quantity} already in cart).`
                     });
                 }
                 existingItem.quantity = newQty;
@@ -101,7 +101,7 @@ const updateCartItem = async (req, res, next) => {
         if (!item) {
             return res.status(404).json({
                 success: false,
-                message: "Product not found in cart.",
+                message: "Product not found in cart."
             });
         }
 
@@ -141,7 +141,7 @@ const removeFromCart = async (req, res, next) => {
         if (cart.products.length === initialLength) {
             return res.status(404).json({
                 success: false,
-                message: "Product not found in cart.",
+                message: "Product not found in cart."
             });
         }
 

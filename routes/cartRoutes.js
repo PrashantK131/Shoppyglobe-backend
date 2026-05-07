@@ -2,11 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { addToCart, updateCartItem, removeFromCart } = require("../controllers/cartController");
 const { protect } = require("../middleware/authMiddleware");
-const {
-  addToCartValidator,
-  updateCartValidator,
-  mongoIdParamValidator,
-} = require("../middleware/validators");
+const { addToCartValidator, updateCartValidator, mongoIdParamValidator} = require("../middleware/validators");
 
 // All cart routes require authentication
 router.use(protect);

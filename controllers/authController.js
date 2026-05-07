@@ -23,7 +23,7 @@ const register = async (req, res, next) => {
         if (existingUser) {
             return res.status(409).json({
                 success: false,
-                message: "Email is already registered.",
+                message: "Email is already registered."
             });
         }
 
@@ -61,7 +61,7 @@ const login = async (req, res, next) => {
         if (!user) {
             return res.status(401).json({
                 success: false,
-                message: "Invalid email or password.",
+                message: "Invalid email or password."
             });
         }
 
@@ -70,7 +70,7 @@ const login = async (req, res, next) => {
         if (!isMatch) {
             return res.status(401).json({
                 success: false,
-                message: "Invalid email or password.",
+                message: "Invalid email or password."
             });
         }
 
